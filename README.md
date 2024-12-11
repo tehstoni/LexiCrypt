@@ -75,6 +75,17 @@ Example:
 lexicrypt.exe -i shellcode.bin -o lexiloader.cpp -t cpp
 ```
 
+Templates:
+```
+-cpp
+-csharp
+-rust
+-go
+-wsh
+-powershell (P/Invoke)
+-powershell_alt (Reflection)
+```
+
 This command reads shellcode.bin, generates a 256-word dictionary from C:\Windows\System32, encodes the shellcode, and produces decoded_shellcode.cpp, containing the encoded words and a decoder routine.
 Output and Execution
 
