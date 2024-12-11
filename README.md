@@ -25,7 +25,6 @@
 - **Multi-language templates**: Currently supports C++, Rust, C#, Go, and VBScript/WScript templates for output.
 - **Automated wordlist generation**: Dynamically generates a 256-word dictionary from system filenames.
 - **Verification step**: Automatically verifies that the encoded shellcode correctly decodes back to the original bytes.
-- **Evasion technique**: By representing shellcode bytes as words, it may help avoid straightforward signature-based detection.
 
 ## Requirements
 
