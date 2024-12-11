@@ -2,7 +2,6 @@
 
 **LexiCrypt** is a shellcode obfuscation and encoding tool that transforms raw shellcode bytes into a "lexicon" of words derived from file names in the windows system32 directory. The resulting encoded output can then be embedded into a code template in various programming languages (e.g., C++, Rust, C#, Go, VBScript/WScript). This approach can help disguise shellcode and potentially bypass naive detection mechanisms.
 
-**Note:** *This tool is intended to be compiled and executed on Windows platforms only.* It relies heavily on Windows-specific directories. Plans to add linux support and feeding the tool a custom wordlist are on the to-do list.
 
 ## How It Works
 
