@@ -62,11 +62,7 @@ Arguments:
     -i, --input <INPUT_FILE>: Path to the input shellcode file (raw binary).
     -o, --output <OUTPUT_FILE>: Path to the output file (the generated template code).
     -t, --template <TEMPLATE>: The template format. Supported templates include:
-        cpp
-        rust
-        csharp
-        go
-        wsh (VBScript/WScript)
+    -w, --wordlist <PATH_TO_FILE>: Specify wordlist to be used instead of default value.
   ```
 Example:
 
