@@ -98,3 +98,4 @@ Can automate it by running the following command while in the directory of your 
 cargo add windows
 ```
 
+PS: Im horrible at updating this thing. When you read this. It may not actually reflect the code 100%. Feel free to reach out to me on discord if you have any questions.
