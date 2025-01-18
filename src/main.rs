@@ -4,7 +4,7 @@ use std::collections::HashSet;
 use std::io::{BufRead, BufReader};
 use rand::seq::SliceRandom;
 use rand::Rng;
-use clap::{Arg, Command};
+use clap::{Arg, Command, ArgAction};
 
 #[derive(Debug)]
 struct Args {
@@ -57,6 +57,8 @@ fn parse_args() -> Args {
             Arg::new("random")
                 .short('r')
                 .help("Use a randomly generated wordlist")
+                .long("random")
+                .action(ArgAction::SetTrue)
                 .required(false)
                 .num_args(0)
         )
@@ -66,7 +68,7 @@ fn parse_args() -> Args {
         output_file: PathBuf::from(matches.get_one::<String>("output").unwrap()),
         template_name: matches.get_one::<String>("template").unwrap().to_string(),
         wordlist_path: matches.get_one::<String>("wordlist").map(PathBuf::from),
-        random: matches.contains_id("random")
+        random: matches.get_flag("random")
     }
 }
 
@@ -159,11 +161,11 @@ fn verify_encoding(original: &[u8], encoded: &[String], word_list: &[String]) {
     }
 }
 
-fn chunk_shellcode(payload: &[String], cap: usize) -> Vec<String> {
+fn chunk_shellcode(payload: &[String], _cap: usize) -> Vec<String> {
     let chunk_size = 25; // Smaller chunks to avoid compiler issues
     let mut chunks = Vec::new();
     let mut current_chunk = Vec::with_capacity(chunk_size);
-    let mut current_line = String::with_capacity(chunk_size * 20); // Rough estimate for string size
+    let mut current_line;
     
     for item in payload.iter() {
         // Add item to current chunk
@@ -556,6 +558,7 @@ Options:
   -o, --output <OUTPUT_FILE>     Path to the output file
   -t, --template <TEMPLATE>      The output template format (e.g., cpp, rust, csharp, go, wsh (VBScript))
   -w, --wordlist <WORDLIST_DIR>  Path to the directory containing the wordlist (default: /usr/bin/ on Linux, C:\Windows\System32 on Windows)
+  -r, --random                   Use a randomly generated wordlist
   -h, --help                     Print help")
 "#);
         return Ok(());
